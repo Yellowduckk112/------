@@ -108,8 +108,7 @@ num_epochs = 10
 train_ch3(num_epochs, net, updater, cross_entropy, train_iter, test_iter)
 
 _, test_iter_2 = load_data_fashion_mnist(10)
-for i, X, y in zip(range(10), *test_iter_2):
-    pass
+X, y = next(iter(test_iter))
 true_labels = d2l.get_fashion_mnist_labels(y)
 pred_labels = d2l.get_fashion_mnist_labels(net(X).argmax(axis=1))
 print(true_labels)
